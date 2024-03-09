@@ -41,11 +41,13 @@ def get_review_text(target_dir:str):
 
 # Dont restrict to 4 points on each Sentiment. you can generate as many points as you can but based on the text only
 
+@st.cache_data
 def get_feedback(text : list) :
     template = """
     You are an AI Assistant who helps in understanding the Customer reviews given to Hotels in Trip Advisor Website. 
 
-    You have given a text delimited by three dashes . Summarize the given text and write Positive Feedback and negative Feedback in crisp points .
+    You have given a text delimited by three dashes . Summarize the given text and write Positive Feedback , negative Feedback and Neutral Feedback in crisp points \
+    Location, Food and Dining Quality, Safety and Security, Service , Value for the Money , Facilities and Amenities. 
 
     ---
     text : {text}
@@ -64,6 +66,12 @@ def get_feedback(text : list) :
     2. Negative Topic 2
     3. Negative Topic 3
     4. Negative Topic 4
+    
+     Neutral Topics :
+    1. Neutral Topic 1
+    2. Neutral Topic 2
+    3. Neutral Topic 3
+    4. Neutral Topic 4
 
     """
 
